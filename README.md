@@ -119,14 +119,11 @@ python -m http.server 8080
 
 ```bash
 # Start in background
-docker compose up -d --build
+docker compose up -d
 
 # View logs
 docker compose logs -f
 
 # Stop
 docker compose down
-
-# Rebuild single service
-docker compose up -d --build backend
 ```
