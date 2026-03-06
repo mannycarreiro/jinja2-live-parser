@@ -28,5 +28,21 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Run command
-      run: ls -ltra
+    - name: Build BackEnd Image
+      uses: docker/build-push-action@v6
+      with:
+        context: ./backend
+        file: ./backend/Dockerfile
+        push: true
+        tags: ${{ vars.DOCKER_REGISTRY }}/${{ github.repository }}/backend:latest
+        platforms: linux/amd64,linux/arm64
+
+    - name: Build Frontend Image
+      uses: docker/build-push-action@v6
+      with:
+        context: ./frontend
+        file: ./frontend/Dockerfile
+        push: true
+        tags: ${{ vars.DOCKER_REGISTRY }}/${{ github.repository }}/frontend:latest
+        platforms: linux/amd64,linux/arm64
+ 
