@@ -6,7 +6,7 @@ services:
     container_name: j2live-backend
     restart: unless-stopped
     ports:
-      - "5000:5000"
+      - "6000:5000"
     environment:
       - FLASK_ENV=production
       - PYTHONDONTWRITEBYTECODE=1
@@ -33,4 +33,4 @@ services:
 
 networks:
   j2live-net:
-    driver: bridge
+
